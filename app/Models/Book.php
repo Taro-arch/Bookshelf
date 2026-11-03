@@ -35,16 +35,10 @@ class Book extends Model
     }
 
 
-    //ユーザーが登録した本（１対多）
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
     //ユーザーが本をお気に入りに入れる（多対多）
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class, 'favorites');
     }
 
     //本に対してのレビュー（１対多）

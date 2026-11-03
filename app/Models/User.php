@@ -55,37 +55,25 @@ class User extends Authenticatable
 
 
 
-    //ユーザーが本を登録する（１対多）
-    public function books()
-    {
-
-    return $this->hasMany(Book::class);
-
-    }
-
 
     //ユーザーが本をお気に入りに入れる（多対多）
-    public function favoriteBooks()
+    public function books()
     {
-        return $this->belongsToMany(Book::class);
+        return $this->belongsToMany(Book::class, 'favorites');
     }
 
 
     //ユーザーがレビューを投稿する（１対多）
     public function reviews()
     {
-
     return $this->hasMany(Review::class);
-
     }
 
 
     //ユーザーがレビューに「いいね」を押す（多対多）
     public function favoriteReviews()
     {
-
-    return $this->belongsToMany(Review::class);
-
+    return $this->belongsToMany(Review::class, 'review_likes');
     }
 
 

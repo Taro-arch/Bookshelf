@@ -13,7 +13,7 @@ class Genre extends Model
     use HasFactory;
 
     protected $fillable = [
-        'genre_name',
+        'name',
     ];
 
 
@@ -21,9 +21,7 @@ class Genre extends Model
     //本のジャンル（多対多）
     public function books()
     {
-
     return $this->belongsToMany(Book::class);
-
     }
 
 

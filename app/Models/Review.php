@@ -16,7 +16,7 @@ class Review extends Model
         protected $fillable = [
         'user_id',
         'book_id',
-        'value',
+        'rating',
         'comment',
     ];
 
@@ -24,17 +24,13 @@ class Review extends Model
     //本に対してのレビュー（１対多）
     public function book()
     {
-
     return $this->belongsTo(Book::class);
-
     }
 
     //ユーザーがレビューを登録する（１対多）
     public function user()
     {
-
     return $this->belongsTo(User::class);
-
     }
 
 
@@ -42,9 +38,7 @@ class Review extends Model
     //ユーザーがレビューに「いいね」を押す（多対多）
     public function users()
     {
-
-    return $this->belongsToMany(User::class);
-
+    return $this->belongsToMany(User::class, 'review_likes');
     }
 
 
