@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
 use Illuminate\Http\Request;
+
+use App\Models\Book;
+use App\Models\Genre;
+
 
 class BookController extends Controller
 {
@@ -20,14 +23,28 @@ public function index()
 }
 
 
-public function show()
+public function show(Request $request)
 {
 
+    $id = $request->route('book');
+
+    $book = Book::find($id);
+
+    return view('books.show', compact('book'));
+
+}
 
 
+public function create()
+{
+
+    $genres = Genre::all();
+
+    return view('books.create', compact('genres'));
 
 
 }
+
 
 
 

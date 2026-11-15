@@ -57,7 +57,7 @@ class User extends Authenticatable
 
 
     //ユーザーが本をお気に入りに入れる（多対多）
-    public function books()
+    public function favoriteBooks()
     {
         return $this->belongsToMany(Book::class, 'favorites');
     }
@@ -71,7 +71,7 @@ class User extends Authenticatable
 
 
     //ユーザーがレビューに「いいね」を押す（多対多）
-    public function favoriteReviews()
+    public function likedReviews()
     {
     return $this->belongsToMany(Review::class, 'review_likes');
     }
