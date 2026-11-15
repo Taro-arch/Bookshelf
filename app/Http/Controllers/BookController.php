@@ -8,14 +8,27 @@ use Illuminate\Http\Request;
 class BookController extends Controller
 {
 
-    public function index()
-    {
-        // 1. データベースからすべての書籍データを取得する
-        $books = Book::all();
 
-        // 2. 取得したデータを「books」という名前の変数としてビューに渡す
-        return view('books.index', compact('books'));
-    }
+public function index()
+{
+    $books = Book::with('genres')
+        ->withAvg('reviews', 'rating')
+        ->latest()
+        ->paginate(10);
+
+    return view('books.index', compact('books'));
+}
+
+
+public function show()
+{
+
+
+
+
+
+}
+
 
 
 }
