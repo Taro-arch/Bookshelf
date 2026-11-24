@@ -19,33 +19,34 @@ class FavoriteSeeder extends Seeder
     //ユーザーID1のお気に入り本
 
     $user = User::find(1);
-    $user->books()->syncWithoutDetaching([1, 4, 5]);
+    $user->favoriteBooks()->syncWithoutDetaching([1, 4, 5]);
 
 
     //ユーザーID2のお気に入り本
 
     $user = User::find(2);
-    $user->books()->syncWithoutDetaching([2, 3, 4]);
+    $user->favoriteBooks()->syncWithoutDetaching([2, 3, 4]);
 
 
-//ユーザーID3のお気に入り本
+    //ユーザーID3のお気に入り本
 
     $user = User::find(3);
-    $user->books()->syncWithoutDetaching([1, 4, 6, 11]);
+    $user->favoriteBooks()->syncWithoutDetaching([1, 4, 6, 11]);
 
 
     //ユーザーID4のお気に入り本
 
     $user = User::find(4);
-    $user->books()->syncWithoutDetaching([3, 6, 9, 10, 11]);
+    $user->favoriteBooks()->syncWithoutDetaching([3, 6, 9, 10, 11]);
 
 
     //ユーザーID5のお気に入り本
 
     $user = User::find(5);
-    $user->books()->syncWithoutDetaching([2, 6, 11]);
+    $user->favoriteBooks()->syncWithoutDetaching([2, 6, 11]);
 
     }
 
 
 }
+
